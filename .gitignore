@@ -12,3 +12,8 @@ src/mastra/public/
 .vercel
 *.duckdb
 *.duckdb.wal
+
+# graphify 图谱产物(可由 graphify extract/cluster-only 重建;README 保留进 git)
+graphs/*/graphify-out/
+graphs/merged.json
+graphs/*.build.log

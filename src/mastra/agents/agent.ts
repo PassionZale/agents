@@ -58,7 +58,7 @@ For local file changes, end with a plain-text URL using ${pathToFileURL(`${works
     options: {
       generateTitle: true,
       observationalMemory: {
-        model: 'openai/deepseek-v4-pro',
+        model: 'openai/deepseek-v4-flash',
       },
     },
   }),

@@ -9,12 +9,17 @@ import {
   SensitiveDataFilter,
 } from '@mastra/observability';
 import { agent } from './agents/agent';
+import { graphifyAgent } from './agents/graphify-agent';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
 import { webFetchTool } from './tools/web-fetch-tool';
 
 export const mastra = new Mastra({
-  agents: { agent },
-  tools: { startScheduleTool, stopScheduleTool, webFetchTool },
+  agents: { agent, graphifyAgent },
+  tools: {
+    startScheduleTool,
+    stopScheduleTool,
+    webFetchTool,
+  },
   storage: new MastraCompositeStore({
     id: 'composite-storage',
     default: new LibSQLStore({
