@@ -59,7 +59,10 @@ const graphifyMcp = new MCPClient({
   servers: {
     graphify: {
       command: 'graphify-mcp',
-      args: [GRAPH_PATH]
+      args: [GRAPH_PATH],
+      // Ctrl+C 时 graphify-mcp (Python) 会把 KeyboardInterrupt traceback 打到 stderr，
+      // inherit 会直通终端刷红屏；ignore 丢弃（连接失败另有 mcpErrors 兜底报错）。
+      stderr: 'ignore',
     },
   },
 });
