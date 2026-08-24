@@ -10,11 +10,15 @@ import {
 } from '@mastra/observability';
 import { agent } from './agents/agent';
 import { graphifyAgent } from './agents/graphify-agent';
+import { NewApiGateway } from './gateways/newapi-gateway';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
 import { webFetchTool } from './tools/web-fetch-tool';
 
 export const mastra = new Mastra({
   agents: { agent, graphifyAgent },
+  gateways: {
+    newapi: new NewApiGateway(),
+  },
   tools: {
     startScheduleTool,
     stopScheduleTool,

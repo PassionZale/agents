@@ -81,12 +81,12 @@ When exploring code, use graphify_query_graph / graphify_shortest_path / graphif
 
 Each graph node carries a source file path, so you can tell which repo a result comes from.
 `,
-  model: 'openai/deepseek-v4-pro',
+  model: 'newapi/deepseek-v4-pro',
   memory: new Memory({
     options: {
       generateTitle: true,
       observationalMemory: {
-        model: 'openai/deepseek-v4-flash',
+        model: 'newapi/deepseek-v4-flash',
       },
     },
   }),
