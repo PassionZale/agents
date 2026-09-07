@@ -1,7 +1,7 @@
 import { createOpenAI } from '@ai-sdk/openai';
 import { MastraModelGateway, type ProviderConfig } from '@mastra/core/llm';
 
-const NEWAPI_MODELS = ['deepseek-v4-pro', 'deepseek-v4-flash', 'glm-5.3', 'MiniMax-M3'];
+const NEWAPI_MODELS = ['glm-5.3', 'glm-5.3-flash', 'MiniMax-M3', 'qwen3.8-flash'];
 
 export class NewApiGateway extends MastraModelGateway {
   readonly id = 'newapi';

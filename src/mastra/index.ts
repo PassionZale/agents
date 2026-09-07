@@ -9,20 +9,21 @@ import {
   SensitiveDataFilter,
 } from '@mastra/observability';
 import { agent } from './agents/agent';
-import { graphifyAgent } from './agents/graphify-agent';
+import { MiniMaxCodingPlanGateway } from './gateways/minimax-coding-plan-gateway';
 import { NewApiGateway } from './gateways/newapi-gateway';
+import { ZhipuCodingPlanGateway } from './gateways/zhipuai-coding-plan-gateway';
 import { startScheduleTool, stopScheduleTool } from './tools/schedule-tools';
-import { webFetchTool } from './tools/web-fetch-tool';
 
 export const mastra = new Mastra({
-  agents: { agent, graphifyAgent },
+  agents: { agent },
   gateways: {
     newapi: new NewApiGateway(),
+    'zhipuai-coding-plan': new ZhipuCodingPlanGateway(),
+    'minimax-cn-coding-plan': new MiniMaxCodingPlanGateway(),
   },
   tools: {
     startScheduleTool,
     stopScheduleTool,
-    webFetchTool,
   },
   storage: new MastraCompositeStore({
     id: 'composite-storage',
